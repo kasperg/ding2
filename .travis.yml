@@ -1,0 +1,13 @@
+language: php
+
+php:
+  - 5.4
+
+install:
+  # install drush globally using composer
+  - composer global require drush/drush:6.*
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+script:
+  # Build profile using drush make
+  - drush make ding2.make --no-core --contrib-destination=. -y
