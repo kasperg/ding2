@@ -347,7 +347,7 @@ projects[wysiwyg][download][revision] = "7981731f4f3db2f932419499d2ec13a073e9b88
 ; Libraries
 libraries[bpi-client][destination] = "modules/bpi/lib"
 libraries[bpi-client][download][type] = "git"
-libraries[bpi-client][download][url] = "git@github.com:ding2/bpi-client.git"
+libraries[bpi-client][download][url] = "https://github.com/ding2/bpi-client.git"
 libraries[bpi-client][download][branch] = "master"
 
 libraries[ckeditor][download][type] = "get"
@@ -356,7 +356,7 @@ libraries[ckeditor][directory_name] = "ckeditor"
 libraries[ckeditor][destination] = "libraries"
 
 libraries[leaflet][download][type] = "get"
-libraries[leaflet][download][url] = "http://leaflet-cdn.s3.amazonaws.com/build/leaflet-0.7.2.zip"
+libraries[leaflet][download][url] = "http://cdn.leafletjs.com/downloads/leaflet-0.7.3.zip"
 libraries[leaflet][directory_name] = "leaflet"
 libraries[leaflet][destination] = "libraries"
 
@@ -367,7 +367,7 @@ libraries[profiler][download][branch] = "7.x-2.0-beta1"
 libraries[profiler][patch][0] = "http://drupal.org/files/profiler-reverse.patch"
 
 libraries[ting-client][download][type] = "git"
-libraries[ting-client][download][url] = "git@github.com:ding2/ting-client.git"
+libraries[ting-client][download][url] = "https://github.com/ding2/ting-client.git"
 libraries[ting-client][download][branch] = "master"
 libraries[ting-client][destination] = "modules/ting/lib"
 
