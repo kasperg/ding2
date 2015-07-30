@@ -16,6 +16,13 @@ test:
   override:
     # Build profile using drush make
     - drush make ding2.make --no-core --contrib-destination=. -y
+    # Install theme dependencies
+    - (cd themes/ddbasic && npm install)
+    # Process theme files.
+    # If there are any changes then fail the build. The result of processing
+    # should be committed along with the source changes.
+    - (cd themes/ddbasic && node_modules/.bin/gulp uglify sass)
+    - git diff --exit-code
   post:
     # Built an entire Drupal site with core, contrib and custom code and make
     # it available as an artifact.
