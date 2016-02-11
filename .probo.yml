@@ -20,3 +20,8 @@ steps:
     plugin: Shell
     command: >
       drush pm-enable ding_example_content -y;
+  - name: Setup file permission
+    plugin: Shell
+    command: >
+      chgrp -Rv www-data sites/default/files;
+      chmod -v 2775 /var/www/html/sites/default/files;
