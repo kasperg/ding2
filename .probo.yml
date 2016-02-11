@@ -1,0 +1,34 @@
+steps:
+  - name: Increase PHP CLI memory limit
+    plugin: Shell
+    command: echo "memory_limit = 512M" > /etc/php5/cli/conf.d/ding2.ini
+  - name: Increase PHP Apache memory limit
+    plugin: Shell
+    command: echo "memory_limit = 512M" > /etc/php5/apache2/conf.d/ding2.ini
+  - name: Check PHP memory limit
+    plugin: Shell
+    command: php -i
+  - name: Build site
+    plugin: Drupal
+    makeFile: drupal.make
+    runInstall: true
+    profileName: ding2
+    installArgs: >
+      --site-name="DDBCMS"
+      --account-pass=ddbcms
+  - name: Configure site
+    plugin: Shell
+    command: >
+      drush pm-enable ding_example_content -y;
+      drush dis -y alma;
+      drush en -y connie;
+      drush vset -y ting_agency 100200;
+      drush vset -y ting_search_url 'http://oss-services.dbc.dk/opensearch/4.0.1/';
+      drush vset -y ting_search_profile test;
+      drush vset -y ting_enable_logging 1;
+  - name: Setup file permissions
+    plugin: Shell
+    command: >
+      mkdir -pv /var/www/html/sites/default/files;
+      chgrp -Rv www-data /var/www/html/sites/default/files;
+      chmod -v 2775 /var/www/html/sites/default/files;
