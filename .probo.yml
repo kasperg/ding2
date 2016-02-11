@@ -28,5 +28,6 @@ steps:
   - name: Setup file permission
     plugin: Shell
     command: >
-      chgrp -Rv www-data sites/default/files;
+      mkdir -pv /var/www/html/sites/default/files;
+      chgrp -Rv www-data /var/www/html/sites/default/files;
       chmod -v 2775 /var/www/html/sites/default/files;
