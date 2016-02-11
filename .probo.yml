@@ -20,6 +20,11 @@ steps:
     plugin: Shell
     command: >
       drush pm-enable ding_example_content -y;
+      drush dis -y alma;
+      drush en -y connie;
+      drush vset -y ting_agency 100200;
+      drush vset -y ting_search_url 'http://oss-services.dbc.dk/opensearch/4.0.1/';
+      drush vset -y ting_search_profile test;
   - name: Setup file permission
     plugin: Shell
     command: >
