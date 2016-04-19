@@ -18,7 +18,7 @@ define('DING_USER_CONSENT_LOAN_HISTORY_STORE', 'loan_history_store');
  */
 function ding_user_consent_ding_provider_user() {
   return array(
-    'user_content' => array(
+    'user_consent' => array(
       'required' => TRUE,
       'install time setup' => TRUE,
     ),
