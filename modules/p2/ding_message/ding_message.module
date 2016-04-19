@@ -797,5 +797,6 @@ function ding_message_get_message_count($uid = NULL) {
  */
 function ding_message_save_log($account, $begin, $end) {
   $log_message = 'Runtime: ' . ($end - $begin) . 's Uid: ' . $account->uid . ' Begin: ' . $begin . ' End: ' . $end;
+  // TODO This method does nothing?
   // watchdog('Ding message', $log_message);
 }

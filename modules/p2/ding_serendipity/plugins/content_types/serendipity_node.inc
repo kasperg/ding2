@@ -111,6 +111,7 @@ function ding_serendipity_serendipity_node_content_type_edit_form($form, &$form_
   $form += ding_serendipity_form_base_keys($form_state);
     
   $bundles = array();
+  // @TODO $entity_info is undefined here.
   foreach ($entity_info['bundles'] as $key => $bundle) {
     $bundles[$key] = $bundle['label'];
   }

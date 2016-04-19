@@ -66,6 +66,7 @@ function ding_serendipity_ting_entity_inspiration_list_content_type_render($subt
   $limit = !empty($conf['limit']) ? $conf['limit'] : 4;
   $content = array(
     // TODO This theme entry does not seem to appear anywhere in the codebase?
+    // TODO: This still seems to apply.
     '#theme' => 'ding_tabs',
     '#name' => 'related_material',
     '#title' => t('Related material'),

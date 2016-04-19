@@ -6,3 +6,4 @@ package = Ding!
 files[] = ting_token.module
 files[] = ting_token.token.inc
 ; TODO I would expect that this modules dependend on the tokens module?
+; TODO Comment above is still relevant.

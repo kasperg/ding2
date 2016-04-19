@@ -66,6 +66,7 @@ function ding_serendipity_ting_entity_serendipity_entity_content_type_edit_form(
  * Implements hook_content_type_edit_form_submit().
  */
 function ding_serendipity_ting_entity_serendipity_entity_content_type_edit_form_submit($form, &$form_state) {
+  // TODO It seems like a lot of this could be handled by ding_serendipity_form_base_submit()
   $form_state['conf']['view_mode'] = isset($form_state['values']['view_mode']) ? $form_state['values']['view_mode'] : 'big_teaser';
   $form_state['conf']['sort_weight'] = isset($form_state['values']['sort_weight']) ? $form_state['values']['sort_weight'] : FALSE;
   $form_state['conf']['max'] = isset($form_state['values']['max']) ? $form_state['values']['max'] : 3;

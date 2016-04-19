@@ -13,6 +13,7 @@ function ting_token_preprocess_page(&$variables) {
   drupal_add_library('system', 'drupal.form');
   drupal_add_library('system', 'jquery.form');
   // TODO Typo?
+  // TODO: Comments here are still relevant.
   drupal_add_library('system', 'druapl.progress');
   drupal_add_library('system', 'drupal.textarea');
   drupal_add_js(

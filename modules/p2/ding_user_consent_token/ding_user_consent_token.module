@@ -51,6 +51,9 @@ function ding_user_consent_token_quick_accept($form, &$form_state) {
       // In case the hide description state is not set, display a short
       // description of this form.
       if (!isset($form_state['hide_description']) || !$form_state['hide_description']) {
+        // TODO Variables should be defined with the module using then.
+        // _description_token and _description_token_given are in
+        // ding_user_consent which does not use them.
         $description = variable_get($consent_id . '_description_token', '');
         $description = (is_array($description)) ? $description['value'] : $description;
         $form['ding_user_consent'] = array(

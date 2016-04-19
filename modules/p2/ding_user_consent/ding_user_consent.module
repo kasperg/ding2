@@ -156,6 +156,8 @@ function ding_user_consent_has_consent($consent_id = NULL, $account = FALSE) {
   return FALSE;
 }
 
+// TODO: The following three functions only work for Alma. It should work for
+// all providers.
 /**
  * Attach consent for to profile form.
  */

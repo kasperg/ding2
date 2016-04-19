@@ -20,6 +20,9 @@ function ding_user_consent_admin_form($form, &$form_state) {
   foreach ($consents as $id => $values) {
     $form[$id] = array(
       '#type' => 'fieldset',
+      // TODO This will make all consent fieldsets have the same title.
+      // Can we retrieve something from the provider info to make it less
+      // generic? 
       '#title' => t('Consent'),
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
@@ -34,6 +37,8 @@ function ding_user_consent_admin_form($form, &$form_state) {
       '#type' => 'textfield',
       '#title' => t('Link to consent description'),
       '#description' => t('Write a link to the page containing a description of user consent. Use whether the format node/!nid or a path alias.'),
+      // TODO: Variables should be prefixed with the responsible module. Does
+      // the $id from the provider implementation take that into account?
       '#default_value' => variable_get($id . '_description_link', ''),
     );
     

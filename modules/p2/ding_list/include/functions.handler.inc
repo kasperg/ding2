@@ -317,6 +317,8 @@ function ding_list_edit_ding_list(&$list, $title, $more = NULL, $tell_openlist =
 
   ding_list_handle_fields_in_list($list, $fields);
 
+  // TODO I suggest replacing module_exists with ding_provider_implements.
+  // Otherwise it is not possible to use other implementations of the provider.
   if (module_exists('ting_openlist') && $tell_openlist === TRUE && $list->openlist_id > 0) {
     // Remove site specific values before sending to list.
     unset($fields['field_ding_list_permissions']);
@@ -383,6 +385,8 @@ function ding_list_detach_ding_list_element(&$list, $element_ids = array(), $sav
     }
   }
 
+  // TODO I suggest replacing module_exists with ding_provider_implements.
+  // Otherwise it is not possible to use other implementations of the provider.
   if (module_exists('ting_openlist') && $tell_openlist === TRUE) {
     $query = db_select('eck_ding_type', 'e');
     $result = $query->fields('e', array('openlist_id'))
@@ -449,6 +453,8 @@ function ding_list_delete_list($list, $tell_openlist = TRUE) {
     ding_list_detach_ding_list_element($list, $keys, TRUE, $tell_openlist);
   }
 
+  // TODO I suggest replacing module_exists with ding_provider_implements.
+  // Otherwise it is not possible to use other implementations of the provider.
   if (module_exists('ting_openlist') && $tell_openlist === TRUE && $list->openlist_id > 0) {
     try {
       ding_provider_invoke('openlist', 'request', 'deleteList', array($list->openlist_id));
@@ -583,6 +589,8 @@ function ding_list_edit_ding_list_element(&$element, $type = NULL, array $values
     $element->{'field_' . $key}[LANGUAGE_NONE] = array(array('value' => $value));
   }
 
+  // TODO I suggest replacing module_exists with ding_provider_implements.
+  // Otherwise it is not possible to use other implementations of the provider.
   if (module_exists('ting_openlist') && $tell_openlist === TRUE && $element->openlist_id > 0) {
     try {
       $openlist_data = $values + array('type' => $type);

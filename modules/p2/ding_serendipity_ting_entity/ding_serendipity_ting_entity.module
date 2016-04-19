@@ -210,6 +210,7 @@ function ding_serendipity_ting_entity_ting_object_adhl_serendipity_add($context)
     // TODO Use ting_get_object_recommendations() instead.
     $request = ting_get_request_factory()->getObjectRecommendationRequest();
     // TODO We have a getIsbn function for retrieving this value.
+    // TODO These still apply.
     if (isset($record['dc:identifier']['dkdcplus:ISBN'])) {
       $request->setIsbn($record['dc:identifier']['dkdcplus:ISBN']);
       $request->setNumResults(10);
@@ -221,6 +222,8 @@ function ding_serendipity_ting_entity_ting_object_adhl_serendipity_add($context)
       // @TODO: Later. Create the ting_object id correct instead of hardcoded
       // "870970-basis:", but ding_provider_build_entity_id doesn't
       // work.
+      // TODO Please explain why ding_provider_build_entity_id does not work
+      // Otherwise we have no chance of knowing when this can be refactored,
       $agency = '870970-basis:';
       $recommendations = ting_execute_cache($request);
       foreach ($recommendations as $recommendation) {
@@ -255,6 +258,8 @@ function ding_serendipity_ting_entity_ting_object_adhr_serendipity_add($context)
     $results = ding_provider_invoke('openlist', 'request', 'callModule', array(
       'TingObjectRating',
       'getSuggestion',
+      // TODO Use a provider function instead of calling ting_openlist
+      // directly.
       array($obj->ding_entity_id, ting_openlist_user_identifier()),
     ));
   }
@@ -292,6 +297,8 @@ function ding_serendipity_ting_entity_ting_object_openlist_adhl_serendipity_add(
     $results = ding_provider_invoke('openlist', 'request', 'callModule', array(
       'LoanHistory',
       'getSuggestion',
+      // TODO Use a provider function instead of calling ting_openlist
+      // directly.
       array($obj->ding_entity_id, ting_openlist_user_identifier()),
     ));
   }

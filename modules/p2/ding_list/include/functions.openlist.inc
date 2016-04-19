@@ -70,6 +70,7 @@ function ding_list_create_map($type, $property, array $ids) {
  *   no new lists or elements ot sync.
  */
 function ding_list_sync_openlist($account = NULL) {
+  // TODO Why is there a tie to ting_openlist here?
   if (!module_exists('ting_openlist')) {
     return FALSE;
   }

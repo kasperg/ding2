@@ -47,6 +47,7 @@ function ding_stt_serendipity_term_content_type_edit_form($form, &$form_state) {
     $node_options[$type->type] = $type->name;
   }
   // We assume the most common thing to display would be events.
+  // TODO Consider using states to hide this if entity type if not node.
   $form['bundle'] = array(
     '#type' => 'select',
     '#title' => t('Node type'),

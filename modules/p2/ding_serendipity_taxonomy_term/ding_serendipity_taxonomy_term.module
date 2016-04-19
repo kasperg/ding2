@@ -234,6 +234,7 @@ function ding_serendipity_taxonomy_get_term($context) {
   $term = taxonomy_term_load($context['taxonomy_tid']);
 
   $term_arr = array();
+  // TODO Is this the same as ding_interest_get_term_cql?
   if (!empty($term->field_search_string)) {
     // Manual broend term query.
     $term_arr['query'] = $term->field_search_string[field_language('taxonomy_term', $term, 'field_search_string')][0]['value'];

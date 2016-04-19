@@ -476,6 +476,8 @@ function ding_list_set_element_position(&$list, $element, $previous = FALSE, $te
 
   if ($new_order != $items) {
 
+    // TODO I suggest replacing module_exists with ding_provider_implements.
+    // Otherwise it is not possible to use other implementations of the provider.
     if (module_exists('ting_openlist') && $tell_openlist === TRUE) {
       try {
         ding_provider_invoke('openlist', 'request', 'setElementAfter', array($element->openlist_id, $previous->openlist_id));
@@ -659,6 +661,8 @@ function ding_list_add_permission($list, $permission, $account = NULL) {
       ));
 
       $id = $account->uid;
+      // TODO Why are we calling ting_openlist directly here instead of calling
+      // a provider function?
       if (module_exists('ting_openlist')) {
         $id = ting_openlist_user_identifier($account);
       }
@@ -708,6 +712,7 @@ function ding_list_list_username($list) {
   global $user;
   
   if ($list->uid != $user->uid) {
+    // TODO Remember to wrap strings in t().
     return 'Another loaner';
   }
   
@@ -734,6 +739,7 @@ function ding_list_get_permission($list, $account) {
   $query->condition('fdlps.entity_id', $list->id);
 
   $id = $account->uid;
+  // TODO More ties to ting_openlist.
   if (module_exists('ting_openlist')) {
     $id = ting_openlist_user_identifier($account);
   }
