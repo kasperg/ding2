@@ -51,4 +51,5 @@ test:
     # Remove node_modules folder. This is not needed in the final artifact.
     - rm -rf $DRUPAL_SITE_PATH/profiles/ding2/themes/ddbasic/node_modules
     # Wrap the site into an archieve and expose it as an artifact.
-    - tar -zcvf $CIRCLE_ARTIFACTS/ding2-$CIRCLE_SHA1.tar.gz -C $DRUPAL_SITE_PATH .
+    # If we have a tag then use that for build id - default to SHA.
+    - tar -zcvf $CIRCLE_ARTIFACTS/ding2-${CIRCLE_TAG:-$CIRCLE_SHA}.tar.gz -C $DRUPAL_SITE_PATH .
