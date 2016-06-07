@@ -12,8 +12,7 @@ function ting_token_preprocess_page(&$variables) {
   drupal_add_library('system', 'drupal.ajax');
   drupal_add_library('system', 'drupal.form');
   drupal_add_library('system', 'jquery.form');
-  // TODO Typo?
-  drupal_add_library('system', 'druapl.progress');
+  drupal_add_library('system', 'drupal.progress');
   drupal_add_library('system', 'drupal.textarea');
   drupal_add_js(
     array(
